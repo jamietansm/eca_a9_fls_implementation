@@ -42,6 +42,22 @@
       power_load="25"
       topic="${namespace}/dvl/state"/>
 
+    <!-- Forward Looking Sonar -->
+    <xacro:forward_looking_sonar
+      namespace="${namespace}"
+      suffix=""
+      parent_link="${namespace}/base_link"
+      topic="forward_sonar"
+      mass="0.015"
+      update_rate="10"
+      samples="100"
+      fov="1.54719755"
+      width="260"
+      height="120">
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+      <origin xyz="0.83 0 -0.22" rpy="0 ${0.2*pi} 0" />
+    </xacro:forward_looking_sonar>     
+     
     <!-- Side scan sonar left -->
     <xacro:sidescan_sonar namespace="${namespace}" parent_link="${namespace}/base_link" suffix="left">
       <origin xyz="0.41225 0.1498 -0.04615" rpy="${0.5*pi} ${-5*d2r+pi/3.0} ${0.5*pi}" />
